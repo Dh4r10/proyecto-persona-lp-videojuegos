@@ -44,7 +44,6 @@
             },
           },
         },
-        font,
       };
     </script>
 
@@ -230,8 +229,53 @@
               Videojuegos retro:
             </p>
           </div>
-          <div class="grid text-slate-200">
-            1
+          <div class="body-screen flex justify-center p-8 pb-12 pr-12">
+            <div class="screen font-bold text-slate-100">
+              <div class="container">
+                <div class="visuals">
+                  <div class="tv">
+                    <video width="324" height="282" loop>
+                      <source
+                              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/355309/8-bit-zelda.mp4"
+                              type="video/mp4"
+                      />
+                    </video>
+                  </div>
+                  <div class="analysers">
+                    <div>
+              <span>pulse 1</span
+              ><canvas id="pulse" width="182" height="60"></canvas>
+                    </div>
+                    <div>
+              <span>pulse 2</span
+              ><canvas id="square" width="182" height="60"></canvas>
+                    </div>
+                    <div>
+              <span>triangle</span
+              ><canvas id="triangle" width="182" height="60"></canvas>
+                    </div>
+                    <div>
+              <span>noise</span
+              ><canvas id="noise" width="182" height="60"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="playlist">
+                  <a class="song active" data-index="0"
+                  >The Legend of Zelda (overworld)</a
+                  >
+                  <a class="song" data-index="1">Pac-Man (intro)</a>
+                  <a class="song" data-index="2">Super Mario Bros (overworld)</a>
+                  <a class="song" data-index="3">Metroid (title theme)</a>
+                  <a class="song" data-index="4"
+                  >Kirby's Adventure (Vegetable Valley)</a
+                  >
+                </div>
+                <div class="play-wrapper">
+                  <a class="play">Play</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -273,5 +317,28 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.9.0/Tone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.9.0/math.min.js"></script>
+    <script type="text/html" src="/templates/js/filters.js"></script>
+    <script type="text/html" src="/templates/js/visualize.js"></script>
+    <script type="text/html" src="/templates/js/options.js"></script>
+    <script type="text/html" src="/templates/js/notes/zelda/bass1.js"></script>
+    <script type="text/html" src="/templates/js/notes/zelda/bass2.js"></script>
+    <script type="text/html" src="/templates/js/notes/zelda/synth1.js"></script>
+    <script type="text/html" src="/templates/js/notes/zelda/synth2.js"></script>
+    <script type="text/html" src="/templates/js/notes/pacman/bass1.js"></script>
+    <script type="text/html" src="/templates/js/notes/pacman/synth1.js"></script>
+    <script type="text/html" src="/templates/js/notes/mario/synth1.js"></script>
+    <script type="text/html" src="/templates/js/notes/mario/synth2.js"></script>
+    <script type="text/html" src="/templates/js/notes/mario/bass1.js"></script>
+    <script type="text/html" src="/templates/js/notes/mario/bass2.js"></script>
+    <script type="text/html" src="/templates/js/notes/metroid/synth1.js"></script>
+    <script type="text/html" src="/templates/js/notes/metroid/synth2.js"></script>
+    <script type="text/html" src="/templates/js/notes/kirby/synth1.js"></script>
+    <script type="text/html" src="/templates/js/notes/kirby/synth2.js"></script>
+    <script type="text/html" src="/templates/js/notes/kirby/bass1.js"></script>
+    <script type="text/html" src="/templates/js/notes/kirby/bass2.js"></script>
+    <script type="text/html" src="/templates/js/songs.js"></script>
+    <script type="text/html" src="/templates/js/app.js"></script>
   </body>
 </html>
