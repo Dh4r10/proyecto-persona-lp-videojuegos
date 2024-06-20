@@ -28,42 +28,6 @@ main {
   grid-template-rows: auto 1fr;
 }
 
-.slider {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-}
-
-.sonic-img {
-  transform: scaleX(-1);
-}
-
-.link-bg-img {
-  transform: scaleX(-1);
-  mask-image: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 1) 10%,
-    rgba(0, 0, 0, 0) 10%
-  );
-  -webkit-mask-image: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 1) 20%,
-    rgba(0, 0, 0, 0) 70%
-  ); /* Para compatibilidad con navegadores WebKit */
-}
-
-.sonic-bg-img {
-  mask-image: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 1) 10%,
-    rgba(0, 0, 0, 0) 10%
-  );
-  -webkit-mask-image: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 1) 20%,
-    rgba(0, 0, 0, 0) 70%
-  ); /* Para compatibilidad con navegadores WebKit */
-}
-
 .text-little-header {
   font-family: monospace;
 
@@ -73,7 +37,7 @@ main {
 
 .tittle-videojuegos-populares {
   width: 100%; /* Ajusta el ancho del div */
-  background-image: url("./img/nieve_gif.gif"); /* Ruta de la imagen de fondo */
+  /*background-image: url("./static/img/nieve_gif.gif"); !* Ruta de la imagen de fondo *!*/
   background-size: cover; /* Escala la imagen para cubrir el div */
   background-position: center; /* Centra la imagen en el div */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -85,61 +49,6 @@ main {
 
 .text-proximamente {
   font-family: "Pixelify Sans", sans-serif;
-}
-
-@media (max-width: 1260px) {
-  .slider {
-    justify-content: center;
-  }
-  #carouselExampleIndicators {
-    width: 70vh;
-  }
-
-  .slider-sonic .sonic-bg-img {
-    /* display: none; */
-    height: 22vh;
-  }
-  .slider-sonic .sonic-img {
-    /* display: none; */
-    height: 8vh;
-  }
-  .slider-link .link-bg-img {
-    /* display: none; */
-    height: 22vh;
-  }
-  .slider-link .link-img {
-    /* display: none; */
-    height: 8vh;
-  }
-}
-
-@media (max-width: 900px) {
-  .slider {
-    display: flex;
-    grid-template-columns: 1fr;
-    justify-content: center;
-  }
-  #carouselExampleIndicators {
-    width: 80vh;
-  }
-  .slider-sonic {
-    display: none;
-  }
-  .slider-sonic .sonic-bg-img {
-    display: none;
-  }
-  .slider-sonic .sonic-img {
-    display: none;
-  }
-  .slider-link {
-    display: none;
-  }
-  .slider-link .link-bg-img {
-    display: none;
-  }
-  .slider-link .link-img {
-    display: none;
-  }
 }
 
 @media (max-width: 650px) {

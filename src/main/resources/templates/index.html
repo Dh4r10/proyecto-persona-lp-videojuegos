@@ -138,92 +138,62 @@
       </div>
     </header>
     <main>
-      <div class="slider bg-[#010101] border-t-4 border-[#212121]">
+      <div class="flex justify-center items-center bg-[#0B0B0B] border-t-4 border-[#212121]">
         <div
-          class="slider-link flex justify-center items-center relative bg-[#010101] m-4"
+                id="carouselExampleIndicators"
+                class="carousel slide"
+                data-ride="carousel"
         >
-          <img
-            class="link-bg-img h-[40vh] absolute mt-4"
-            src="./img/plataformer_gif_3.gif"
-            alt="link background gif"
-          />
-          <img
-            class="link-img h-[13vh] absolute"
-            src="./img/link_gif.gif"
-            alt="link gif"
-          />
-        </div>
-        <div class="slider-principal" >
-          <div
-            id="carouselExampleIndicators"
-            class="carousel slide w-[100vh]"
-            data-ride="carousel"
-          >
-            <ol class="carousel-indicators">
-              <li th:each="videojuego, iterstat : ${videojuegos}"
+          <ol class="carousel-indicators">
+            <li th:each="videojuego, iterstat : ${videojuegos}"
                 data-target="#carouselExampleIndicators"
                 th:data-slide-to="${iterstat.index}"
                 th:classappend="${iterstat.index == 0} ? 'active' : ''"
-              ></li>
-            </ol>
-            <div class="carousel-inner">
-              <div th:each="videojuego, iterstat : ${videojuegos}" th:classappend="${iterstat.index == 0} ? 'carousel-item active' : 'carousel-item' ">
-                <img
-                  class="d-block w-100"
-                  th:src="${videojuego.portadaUno}"
-                  th:alt="${videojuego.nombre}"
-                />
-                <div class="carousel-caption d-none d-md-block">
-                  <h5 class="font-bold text-[2.7vh] pb-2" th:text="${videojuego.nombre}"></h5>
-                  <p class="text-[2vh] text-slate-200" th:text="${videojuego.descripcion}"></p>
-                </div>
+            ></li>
+          </ol>
+          <div class="carousel-inner">
+            <div th:each="videojuego, iterstat : ${videojuegos}" th:classappend="${iterstat.index == 0} ? 'carousel-item active' : 'carousel-item' ">
+              <img
+                      class="d-block w-100"
+                      th:src="${videojuego.portadaUno}"
+                      th:alt="${videojuego.nombre}"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5 class="font-bold text-[2.7vh] pb-2" th:text="${videojuego.nombre}"></h5>
+                <p class="text-[2vh] text-slate-200" th:text="${videojuego.descripcion}"></p>
               </div>
             </div>
-            <a
-              class="carousel-control-prev"
-              href="#carouselExampleIndicators"
-              role="button"
-              data-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a
-              class="carousel-control-next"
-              href="#carouselExampleIndicators"
-              role="button"
-              data-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="sr-only">Next</span>
-            </a>
           </div>
-        </div>
-        <div
-          class="slider-sonic flex justify-center items-center relative bg-[#010101] m-4"
-        >
-          <img
-            class="sonic-bg-img h-[40vh] absolute mt-4"
-            src="./img/plataformer_gif_3.gif"
-            alt="sonic background gif"
-          />
-          <img
-            class="sonic-img h-[12vh] absolute"
-            src="./img/sonic_gif_2.gif"
-            alt="sonic gif"
-          />
+          <a
+                  class="carousel-control-prev"
+                  href="#carouselExampleIndicators"
+                  role="button"
+                  data-slide="prev"
+          >
+              <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"
+              ></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+                  class="carousel-control-next"
+                  href="#carouselExampleIndicators"
+                  role="button"
+                  data-slide="next"
+          >
+              <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"
+              ></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </div>
       <div class="info p-3 gap-4">
         <div class="flex flex-col border-[2px] border-[#3C3C3C]">
           <div
-            class="tittle-videojuegos-populares flex text-white items-center py-3 px-3 border-b-[1px] border-[#3C3C3C] bg-[#292929]"
+            class="tittle-videojuegos-populares flex text-white items-center py-3 px-3 border-b-[1px] border-[#3C3C3C] bg-[#292929] bg-[url('./img/nieve_gif.gif')]"
           >
             <p class="text-[17px] text-[#608eff] font-bold">
               Videojuegos populares:
@@ -253,64 +223,28 @@
           </div>
         </div>
         <div class="flex justify-center items-center flex-col border-[2px] border-[#3C3C3C] relative">
-          <img
-            class="w-24 absolute top-7 left-10"
-            src="./img/murcielago_gif.gif"
-            alt="murcielago gif"
-          />
-          <img
-            class="w-24 absolute top-2 left-48"
-            src="./img/murcielago_gif.gif"
-            alt="murcielago gif"
-          />
-          <img
-            class="w-24 absolute top-5 left-96"
-            src="./img/murcielago_gif.gif"
-            alt="murcielago gif"
-          />
-          <img
-            class="w-24 absolute bottom-5 left-10"
-            src="./img/murcielago_gif.gif"
-            alt="murcielago gif"
-          />
-          <img
-            class="w-24 absolute bottom-5 left-42"
-            src="./img/murcielago_gif.gif"
-            alt="murcielago gif"
-          />
-          <img
-            class="w-24 absolute bottom-7 left-36"
-            src="./img/murcielago_gif.gif"
-            alt="murcielago gif"
-          />
-          <img
-            class="w-24 absolute bottom-5 right-28"
-            src="./img/murcielago_gif.gif"
-            alt="murcielago gif"
-          />
-          <img
-            class="w-24 absolute bottom-2 right-5"
-            src="./img/murcielago_gif.gif"
-            alt="murcielago gif"
-          />
-          <img
-            class="w-24 absolute top-2 right-16"
-            src="./img/murcielago_gif.gif"
-            alt="murcielago gif"
-          />
           <p class="text-proximamente text-xl text-slate-400">EN CONSTRUCCIÓN...</p>
         </div>
       </div>
     </main>
-    <footer class="flex justify-between bg-[#1A1A1A] p-3 text-xs text-white">
-      <div class="flex gap-4">
-        <p>Derechos reservados Ⓡ</p>
-        <p>2024</p>
+    <footer class="flex flex-col gap-3 bg-[#1A1A1A] p-3 text-sm text-gray-500">
+      <div class="flex justify-center items-center py-4">
+        <div class="flex items-center gap-10 text-3xl">
+          <a href="#" class="hover:text-[#249ef0]"><i class="fa-brands fa-twitter"></i></a>
+          <p class="text-4xl font-thin">/</p>
+          <a href="#" class="hover:text-[#405da0]"><i class="fa-brands fa-square-facebook"></i></a>
+          <p class="text-4xl font-thin">/</p>
+          <a href="#" class="hover:text-[#FA6251]"><i class="fa-brands fa-instagram"></i></a>
+          <p class="text-4xl font-thin">/</p>
+          <a href="#" class="hover:text-slate-300"><i class="fa-brands fa-tiktok"></i></a>
+          <p class="text-4xl font-thin">/</p>
+          <a href="#" class="hover:text-[#00A253]"><i class="fa-solid fa-building-columns"></i></a>
+        </div>
       </div>
-      <div class="flex gap-4">
-        <p>Jhosep Gómez</p>
-        <p>-</p>
-        <p>UNSM</p>
+      <div class="flex items-center justify-between text-gray-400 font-regular">
+        <p class="text-xs text-gray-500">JHOSEP GÓMEZ</p>
+        <p class="font-bold pl-10">UNSM</p>
+        <p class="text-xs text-gray-500">L. DE PROGRAMACIÓN</p>
       </div>
     </footer>
 
