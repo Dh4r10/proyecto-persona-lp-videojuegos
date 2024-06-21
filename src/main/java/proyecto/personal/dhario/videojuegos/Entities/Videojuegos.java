@@ -1,12 +1,16 @@
 package proyecto.personal.dhario.videojuegos.Entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table(name = "videojuegos")
+@SQLDelete(sql = "UPDATE videojuegos SET estado = false WHERE id = ?")
+@Where(clause = "estado = true")
 public class Videojuegos {
 
     @Id

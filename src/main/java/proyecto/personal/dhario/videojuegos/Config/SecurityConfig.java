@@ -18,7 +18,7 @@ public class SecurityConfig {
 
         http.authorizeHttpRequests(request -> request.requestMatchers("/","/css/*", "/img/*","/js/*", "/js/notes/zelda/*", "/js/notes/pacman/*", "/js/notes/mario/*", "/js/notes/metroid/*", "/js/notes/kirby/*").permitAll()
                     .anyRequest().authenticated())
-                .formLogin(form -> form.loginPage("/login").permitAll())
+                .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/videojuegos", true).permitAll())
                 .logout(LogoutConfigurer::permitAll);
         return http.build();
     }

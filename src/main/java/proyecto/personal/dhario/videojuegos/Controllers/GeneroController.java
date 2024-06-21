@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import proyecto.personal.dhario.videojuegos.Entities.Genero;
+import proyecto.personal.dhario.videojuegos.Entities.Videojuegos;
 import proyecto.personal.dhario.videojuegos.Repositories.GeneroRepository;
 
 import java.util.List;

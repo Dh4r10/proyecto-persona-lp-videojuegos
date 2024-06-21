@@ -6,7 +6,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Dhario Games</title>
+    <title>Fonavi Games</title>
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon" />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,7 +52,9 @@
   </head>
   <body class="h-screen bg-[#202020]">
     <header class="flex justify-between bg-[#1A1A1A]">
-      <div class="logo-header flex items-center font-bold text-3xl bg-[#292929] py-3">
+      <div
+        class="logo-header flex items-center font-bold text-3xl bg-[#292929] py-3"
+      >
         <div class="flex items-center gap-3 px-3 relative">
           <img
             class="logo-img h-[3vh]"
@@ -137,54 +140,60 @@
       </div>
     </header>
     <main>
-      <div class="flex justify-center items-center bg-[#0B0B0B] border-t-4 border-[#212121]">
+      <div
+        class="flex justify-center items-center bg-[#0B0B0B] border-t-4 border-[#212121]"
+      >
         <div
-                id="carouselExampleIndicators"
-                class="carousel slide"
-                data-ride="carousel"
+          id="carouselExampleIndicators"
+          class="carousel slide w-[100vh]"
+          data-ride="carousel"
         >
           <ol class="carousel-indicators">
-            <li th:each="videojuego, iterstat : ${videojuegos}"
-                data-target="#carouselExampleIndicators"
-                th:data-slide-to="${iterstat.index}"
-                th:classappend="${iterstat.index == 0} ? 'active' : ''"
+            <li
+              th:each="videojuego, iterstat : ${videojuegos}"
+              data-target="#carouselExampleIndicators"
+              th:data-slide-to="${iterstat.index}"
+              th:classappend="${iterstat.index == 0} ? 'active' : ''"
             ></li>
           </ol>
           <div class="carousel-inner">
-            <div th:each="videojuego, iterstat : ${videojuegos}" th:classappend="${iterstat.index == 0} ? 'carousel-item active' : 'carousel-item' ">
+            <div
+              th:each="videojuego, iterstat : ${videojuegos}"
+              th:classappend="${iterstat.index == 0} ? 'carousel-item active' : 'carousel-item' "
+            >
               <img
-                      class="d-block w-100"
-                      th:src="${videojuego.portadaUno}"
-                      th:alt="${videojuego.nombre}"
+                class="d-block w-100"
+                th:src="${videojuego.portadaUno}"
+                th:alt="${videojuego.nombre}"
               />
               <div class="carousel-caption d-none d-md-block">
-                <h5 class="font-bold text-[2.7vh] pb-2" th:text="${videojuego.nombre}"></h5>
-                <p class="text-[2vh] text-slate-200" th:text="${videojuego.descripcion}"></p>
+                <h5
+                  class="font-bold text-[2.7vh] pb-2"
+                  th:text="${videojuego.nombre}"
+                ></h5>
+                <p
+                  class="text-[2vh] text-slate-200"
+                  th:text="${videojuego.descripcion}"
+                ></p>
               </div>
             </div>
           </div>
           <a
-                  class="carousel-control-prev"
-                  href="#carouselExampleIndicators"
-                  role="button"
-                  data-slide="prev"
+            class="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="prev"
           >
-              <span
-                      class="carousel-control-prev-icon"
-                      aria-hidden="true"
-              ></span>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
           <a
-                  class="carousel-control-next"
-                  href="#carouselExampleIndicators"
-                  role="button"
-                  data-slide="next"
+            class="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="next"
           >
-              <span
-                      class="carousel-control-next-icon"
-                      aria-hidden="true"
-              ></span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
         </div>
@@ -223,7 +232,7 @@
         </div>
         <div class="flex flex-col border-[2px] border-[#3C3C3C]">
           <div
-                  class="tittle-videojuegos-populares flex text-white items-center py-3 px-3 border-b-[1px] border-[#3C3C3C] bg-[#292929] bg-[url('./img/nieve_gif.gif')]"
+            class="tittle-videojuegos-populares flex text-white items-center py-3 px-3 border-b-[1px] border-[#3C3C3C] bg-[#292929] bg-[url('./img/nieve_gif.gif')]"
           >
             <p class="text-[17px] text-[#608eff] font-bold">
               Videojuegos retro:
@@ -234,41 +243,25 @@
               <div class="container">
                 <div class="visuals">
                   <div class="tv">
-                    <video width="324" height="282" loop>
+                    <video loop>
                       <source
-                              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/355309/8-bit-zelda.mp4"
-                              type="video/mp4"
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/355309/8-bit-zelda.mp4"
+                        type="video/mp4"
                       />
                     </video>
-                  </div>
-                  <div class="analysers">
-                    <div>
-              <span>pulse 1</span
-              ><canvas id="pulse" width="182" height="60"></canvas>
-                    </div>
-                    <div>
-              <span>pulse 2</span
-              ><canvas id="square" width="182" height="60"></canvas>
-                    </div>
-                    <div>
-              <span>triangle</span
-              ><canvas id="triangle" width="182" height="60"></canvas>
-                    </div>
-                    <div>
-              <span>noise</span
-              ><canvas id="noise" width="182" height="60"></canvas>
-                    </div>
                   </div>
                 </div>
                 <div class="playlist">
                   <a class="song active" data-index="0"
-                  >The Legend of Zelda (overworld)</a
+                    >The Legend of Zelda (overworld)</a
                   >
                   <a class="song" data-index="1">Pac-Man (intro)</a>
-                  <a class="song" data-index="2">Super Mario Bros (overworld)</a>
+                  <a class="song" data-index="2"
+                    >Super Mario Bros (overworld)</a
+                  >
                   <a class="song" data-index="3">Metroid (title theme)</a>
                   <a class="song" data-index="4"
-                  >Kirby's Adventure (Vegetable Valley)</a
+                    >Kirby's Adventure (Vegetable Valley)</a
                   >
                 </div>
                 <div class="play-wrapper">
@@ -283,15 +276,25 @@
     <footer class="flex flex-col gap-3 bg-[#1A1A1A] p-3 text-sm text-gray-500">
       <div class="flex justify-center items-center py-4">
         <div class="flex items-center gap-10 text-3xl">
-          <a href="#" class="hover:text-[#249ef0]"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="hover:text-[#249ef0]"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
           <p class="text-4xl font-thin">/</p>
-          <a href="#" class="hover:text-[#405da0]"><i class="fa-brands fa-square-facebook"></i></a>
+          <a href="#" class="hover:text-[#405da0]"
+            ><i class="fa-brands fa-square-facebook"></i
+          ></a>
           <p class="text-4xl font-thin">/</p>
-          <a href="#" class="hover:text-[#FA6251]"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="hover:text-[#FA6251]"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
           <p class="text-4xl font-thin">/</p>
-          <a href="#" class="hover:text-slate-300"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" class="hover:text-slate-300"
+            ><i class="fa-brands fa-tiktok"></i
+          ></a>
           <p class="text-4xl font-thin">/</p>
-          <a href="#" class="hover:text-[#00A253]"><i class="fa-solid fa-building-columns"></i></a>
+          <a href="#" class="hover:text-[#00A253]"
+            ><i class="fa-solid fa-building-columns"></i
+          ></a>
         </div>
       </div>
       <div class="flex items-center justify-between text-gray-400 font-regular">
@@ -317,28 +320,5 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.9.0/Tone.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.9.0/math.min.js"></script>
-    <script type="text/html" src="/templates/js/filters.js"></script>
-    <script type="text/html" src="/templates/js/visualize.js"></script>
-    <script type="text/html" src="/templates/js/options.js"></script>
-    <script type="text/html" src="/templates/js/notes/zelda/bass1.js"></script>
-    <script type="text/html" src="/templates/js/notes/zelda/bass2.js"></script>
-    <script type="text/html" src="/templates/js/notes/zelda/synth1.js"></script>
-    <script type="text/html" src="/templates/js/notes/zelda/synth2.js"></script>
-    <script type="text/html" src="/templates/js/notes/pacman/bass1.js"></script>
-    <script type="text/html" src="/templates/js/notes/pacman/synth1.js"></script>
-    <script type="text/html" src="/templates/js/notes/mario/synth1.js"></script>
-    <script type="text/html" src="/templates/js/notes/mario/synth2.js"></script>
-    <script type="text/html" src="/templates/js/notes/mario/bass1.js"></script>
-    <script type="text/html" src="/templates/js/notes/mario/bass2.js"></script>
-    <script type="text/html" src="/templates/js/notes/metroid/synth1.js"></script>
-    <script type="text/html" src="/templates/js/notes/metroid/synth2.js"></script>
-    <script type="text/html" src="/templates/js/notes/kirby/synth1.js"></script>
-    <script type="text/html" src="/templates/js/notes/kirby/synth2.js"></script>
-    <script type="text/html" src="/templates/js/notes/kirby/bass1.js"></script>
-    <script type="text/html" src="/templates/js/notes/kirby/bass2.js"></script>
-    <script type="text/html" src="/templates/js/songs.js"></script>
-    <script type="text/html" src="/templates/js/app.js"></script>
   </body>
 </html>

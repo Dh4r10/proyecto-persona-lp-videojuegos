@@ -1,9 +1,15 @@
 package proyecto.personal.dhario.videojuegos.Entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "users")
+@SQLDelete(sql = "UPDATE users SET activo = false WHERE id = ?")
+@Where(clause = "activo = true")
 public class Users {
 
     @Id
@@ -16,7 +22,11 @@ public class Users {
 
     private String username;
     private String password;
-    private String fullname;
+    private String email;
+    private String nombre;
+    private String apellidoPaterno;
+    private String apellidoMaterno;
+    private LocalDate fechaNacimiento;
     private Boolean activo;
 
     public Integer getId() {
@@ -51,12 +61,44 @@ public class Users {
         this.password = password;
     }
 
-    public String getFullname() {
-        return fullname;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String fullname) {
+        this.nombre = fullname;
+    }
+
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
+    }
+
+    public void setApellidoPaterno(String apellidoPaterno) {
+        this.apellidoPaterno = apellidoPaterno;
+    }
+
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    public void setApellidoMaterno(String apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public Boolean getActivo() {

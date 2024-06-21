@@ -1,10 +1,13 @@
 package proyecto.personal.dhario.videojuegos.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import proyecto.personal.dhario.videojuegos.Entities.Roles;
 import proyecto.personal.dhario.videojuegos.Entities.Users;
+import proyecto.personal.dhario.videojuegos.Repositories.RolesRepository;
 import proyecto.personal.dhario.videojuegos.Repositories.UsersRepository;
 
 import java.util.List;
@@ -16,11 +19,18 @@ public class UsersController {
 
     @Autowired
     private UsersRepository userRepository;
+    @Autowired
+    private RolesRepository rolesRepository;
 
     @GetMapping
     public String getUsers(Model model) {
-        List<Users> userList = userRepository.findAll();
-        model.addAttribute("users", userList);
+        List<Users> userLista = userRepository.findAll();
+        model.addAttribute("users", userLista);
+        model.addAttribute("usersForm", new Users());
+
+        List<Roles> rolesLista = rolesRepository.findAll();
+        model.addAttribute("rolesSelect", rolesLista);
+
         return "users"; // Nombre de la plantilla Thymeleaf para listar usuarios
     }
 
@@ -35,15 +45,23 @@ public class UsersController {
         return "detalleUsuario"; // Nombre de la plantilla Thymeleaf para mostrar detalles de usuario
     }
 
-    @GetMapping("/crear")
-    public String crearUsuarioForm(Model model) {
-        model.addAttribute("user", new Users());
-        return "crearUsuario"; // Nombre de la plantilla Thymeleaf para crear un nuevo usuario
-    }
-
-    @PostMapping("/crear")
+    @PostMapping("/users-create")
     public String crearUsuario(Users user) {
-        userRepository.save(user);
+        var BcryptPasswordEncoder = new BCryptPasswordEncoder();
+
+        Users newUser = new Users();
+
+        newUser.setUsername(user.getUsername());
+        newUser.setPassword(BcryptPasswordEncoder.encode(user.getPassword()));
+        newUser.setRoles(user.getRoles());
+        newUser.setEmail(user.getEmail());
+        newUser.setNombre(user.getNombre());
+        newUser.setApellidoPaterno(user.getApellidoPaterno());
+        newUser.setApellidoMaterno(user.getApellidoMaterno());
+        newUser.setFechaNacimiento(user.getFechaNacimiento());
+        newUser.setActivo(true);
+
+        userRepository.save(newUser);
         return "redirect:/users";
     }
 
@@ -65,7 +83,7 @@ public class UsersController {
         return "redirect:/users";
     }
 
-    @PostMapping("/eliminar/{id}")
+    @RequestMapping("/eliminar-user/{id}")
     public String eliminarUsuario(@PathVariable Integer id) {
         userRepository.deleteById(id);
         return "redirect:/users";
